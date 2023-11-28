@@ -44,12 +44,30 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Category::$rules);
+        //request()->validate(Category::$rules);
+        request()->validate([
+            'category' => 'required|unique:categories,category',
+            // Otras reglas de validación según sea necesario
+        ]);
 
-        $category = Category::create($request->all());
+        $category = Category::firstOrCreate(
+            ['category' => $request->input('category')],
+            ['status' => 1] // Otras columnas según sea necesario
+        );
+
+        if ($category->wasRecentlyCreated) {
+            // La categoría se creó con éxito
+            return redirect()->route('categories.index')
+                ->with('success', 'Categoría creada exitosamente.');
+        } else {
+            // La categoría ya existía
+            return redirect()->route('categories.index')
+                ->with('info', 'La categoría ya existe.');
+        }
+        /* $category = Category::create($request->all());
 
         return redirect()->route('categories.index')
-            ->with('success', 'Category created successfully.');
+            ->with('success', 'Category created successfully.');*/
     }
 
     /**

@@ -18,20 +18,20 @@
     </div>
 </div>
 <div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('status') }}</label>
+    <label class="form-label">{{ Form::label('status') }}</label>
     <div>
-        {{ Form::text('status', $presentation->status, ['class' => 'form-control' .
-        ($errors->has('status') ? ' is-invalid' : ''), 'placeholder' => 'Status']) }}
+        {{ Form::select('status', ['1' => 'Activo', '0' => 'Inactivo'], old('status', $presentation->status), ['class' => 'form-control' . ($errors->has('status') ? ' is-invalid' : ''), 'placeholder' => 'Select Status']) }}
         {!! $errors->first('status', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">presentation <b>status</b> instruction.</small>
+        <small class="form-hint">Presentation <b>Estado</b> instruction.</small>
     </div>
 </div>
+
 
     <div class="form-footer">
         <div class="text-end">
             <div class="d-flex">
-                <a href="#" class="btn btn-danger">Cancel</a>
-                <button type="submit" class="btn btn-primary ms-auto ajax-submit">Submit</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary ms-auto ajax-submit">Guardar</button>
             </div>
         </div>
     </div>

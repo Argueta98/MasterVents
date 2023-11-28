@@ -144,24 +144,20 @@ return [
                 ],
                 [
                     'text' => 'Presentacion',
-                    'url' => '/presentation',
+                    'url' => '/presentations',
                     'icon' => 'ti ti-article',
                 ],
                 [
                     'text' => 'Marca',
-                    'url' => '#',
+                    'url' => '/brands',
                     'icon' => 'ti ti-article',
                 ],
                 [
                     'text' => 'Producto',
                     'url' => '#',
                     'icon' => 'ti ti-article',
-                ],
-                [
-                    'text' => 'Perecedero',
-                    'url' => '#',
-                    'icon' => 'ti ti-article',
                 ]
+                
             ],
         ],
 

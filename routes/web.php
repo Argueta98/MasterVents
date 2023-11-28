@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\PresentationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -22,4 +23,6 @@ Auth::routes();
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/categories', CategoryController::class);
-Route::resource('/presentation',PresentationController::class);
+Route::resource('/presentations',PresentationController::class);
+Route::resource('/brands', BrandController::class);
+

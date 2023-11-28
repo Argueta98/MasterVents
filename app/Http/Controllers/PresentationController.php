@@ -32,7 +32,7 @@ class PresentationController extends Controller
     public function create()
     {
         $presentation = new Presentation();
-        return view('presentation.create', compact('presentation'));
+        return view('presentations.create', compact('presentation'));
     }
 
     /**
@@ -61,7 +61,7 @@ class PresentationController extends Controller
     {
         $presentation = Presentation::find($id);
 
-        return view('presentation.show', compact('presentation'));
+        return view('presentations.show', compact('presentation'));
     }
 
     /**

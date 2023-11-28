@@ -26,6 +26,11 @@ class Presentation extends Model
 		'status' => 'required',
     ];
 
+    public function getStatusTextAttribute()
+    {
+        return ($this->status == 1) ? 'Activo' : 'Inactivo';
+    }
+
     protected $perPage = 20;
 
     /**
